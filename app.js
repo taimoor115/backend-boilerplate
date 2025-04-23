@@ -6,6 +6,7 @@ import morgan from 'morgan'
 import { ALLOWED_ORIGINS } from './src/config/env.config.js'
 import router from './src/routes/index.js'
 import ApiError from './src/utils/error.util.js'
+import { sendNoticationWithQueue } from './src/sender/emails.js'
 
 const app = express()
 
@@ -32,6 +33,11 @@ app.use(
         level: 6
     })
 )
+
+// app.get("/send", async (req, res) => {
+//   await sendNoticationWithQueue('taimoorhussain985@gmail.com', 'Test User')
+//   res.send('Email sent successfully')
+// })
 
 app.use(cookieParser())
 

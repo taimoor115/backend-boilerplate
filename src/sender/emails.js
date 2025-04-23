@@ -1,3 +1,4 @@
+import { emailQueueInstance } from '../instances/queue.instance.js'
 import { adLiveNotificationTemplate, doctorSelectionNotificationTemplate, invoiceEmailTemplate, passwordResetTemplate } from './emailTemplates.js'
 import { sendMail, transporter } from './index.js'
 export const sendAdLiveNotification = async (email, userName) => {
@@ -11,6 +12,13 @@ export const sendAdLiveNotification = async (email, userName) => {
     }
 }
 
+export const sendNoticationWithQueue = async (email, userName) => {
+    await emailQueueInstance.addJob({
+        type: 'adLiveNotification',
+        email,
+        userName
+    })
+}
 export const sendInvoiceEmail = async (email, userName, amount, category, date) => {
     const subject = 'Your Pettrify Invoice 📋'
     const htmlContent = invoiceEmailTemplate(userName, amount, category, date)
