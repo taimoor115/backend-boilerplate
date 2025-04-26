@@ -1,4 +1,4 @@
-export const DB_NAME = 'forecast'
+export const DB_NAME = 'nutrivision'
 export const POST_CONFIG = {
     BATCH_SIZE: 3,
     MAX_IMAGES: 10,

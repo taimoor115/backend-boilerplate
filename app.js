@@ -6,7 +6,6 @@ import morgan from 'morgan'
 import { ALLOWED_ORIGINS } from './src/config/env.config.js'
 import router from './src/routes/index.js'
 import ApiError from './src/utils/error.util.js'
-import { sendNoticationWithQueue } from './src/sender/emails.js'
 
 const app = express()
 

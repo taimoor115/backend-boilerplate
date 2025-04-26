@@ -7,7 +7,7 @@ dotenv.config({
 })
 
 const connectDB = async () => {
-    try {
+try {
         const connectionInstance = await mongoose.connect(`${MONGO_URL}/${DB_NAME}`)
 
         console.warn(`\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`)
